@@ -8,15 +8,18 @@ const app = express();
 app.use(bodyParser.json());
 
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  port: process.env.DB_PORT  // Agregar el puerto a la conexión
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
+  port: process.env.MYSQLPORT // Incluyendo el puerto de la base de datos
 });
 
 connection.connect((err) => {
-  if (err) throw err;
+  if (err) {
+    console.error('Error conectando a la base de datos:', err);
+    process.exit(1); // Finaliza el proceso si hay un error de conexión
+  }
   console.log('Conectado a la base de datos MySQL.');
 });
 
