@@ -1,17 +1,18 @@
 require('dotenv').config(); // Cargar variables de entorno desde .env
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
-const { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE } = require('./config');
 
 const app = express();
 app.use(bodyParser.json());
 
 const connection = mysql.createConnection({
-  host: DB_HOST,
-  user: DB_USER,
-  password: DB_PASSWORD,
-  database: DB_DATABASE
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT  // Agregar el puerto a la conexión
 });
 
 connection.connect((err) => {
@@ -29,6 +30,7 @@ app.post('/api/formulario', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Servidor escuchando en el puerto 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
