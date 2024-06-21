@@ -2,7 +2,7 @@ require('dotenv').config(); // Cargar variables de entorno desde .env
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const mysql = require('mysql');
+const mysql = require('mysql2'); // Cambiar a mysql2
 
 const app = express();
 app.use(bodyParser.json());
