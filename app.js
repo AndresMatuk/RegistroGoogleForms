@@ -37,3 +37,19 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
+
+/*
+
+MYSQLDATABASE=railway
+MYSQLHOST=viaduct.proxy.rlwy.net
+MYSQLPASSWORD=ZMcSnPHFsYFiggMsEFuynuMsPCPtvRTp
+MYSQLPORT=26711
+MYSQLUSER=root
+
+MYSQLDATABASE= formularioGoogle
+MYSQLHOST= 127.0.0.1
+MYSQLPASSWORD= andres123
+MYSQLPORT= 3306
+MYSQLUSER=root
+
+*/
