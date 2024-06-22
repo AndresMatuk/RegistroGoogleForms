@@ -8,23 +8,3 @@ export const pool = mysql.createPool({
   port: MYSQLPORT,
   database: MYSQLDATABASE
 })
-
-
-
-
-
-/*
-
-MYSQLDATABASE=railway
-MYSQLHOST=viaduct.proxy.rlwy.net
-MYSQLPASSWORD=ZMcSnPHFsYFiggMsEFuynuMsPCPtvRTp
-MYSQLPORT=26711
-MYSQLUSER=root
-
-MYSQLDATABASE= formularioGoogle
-MYSQLHOST= 127.0.0.1
-MYSQLPASSWORD= andres123
-MYSQLPORT= 3306
-MYSQLUSER=root
-
-*/
