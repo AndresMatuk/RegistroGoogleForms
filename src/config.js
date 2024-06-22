@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 export const PORT = process.env.PORT || 3000
 
 export const MYSQLHOST = process.env.MYSQLHOST || '127.0.0.1'

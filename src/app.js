@@ -1,3 +1,5 @@
+import 'dotenv/config'; 
+
 import express from 'express'
 import { pool } from '../db/db.js'
 import { PORT } from './config.js'
