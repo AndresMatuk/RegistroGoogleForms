@@ -6,4 +6,9 @@ nombre varchar(20) not null,
 correo varchar(40) not null,
 numero varchar(20) not null
 );
-
+create table EntradasSalidas(
+id int AUTO_INCREMENT primary key not null,
+nombre varchar(20) not null,
+correo varchar(40) not null,
+numero varchar(20) not null
+);

@@ -48,6 +48,25 @@ app.post('/registro', async (req, res) => {
   }
 });
 
+app.get('/entrada', async (req, res) => {
+  const { nombre, correo, numero } = req.query;
+
+  if (!nombre || !correo || !numero) {
+    return res.status(400).send('Faltan parámetros en la solicitud');
+  }
+
+  const registro = { nombre, correo, numero };
+
+  try {
+    const connection = await pool.getConnection();
+    await connection.query('INSERT INTO EntradasSalidas SET ?', registro);
+    connection.release();
+    res.status(200).send('Entrada registrada correctamente');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error en el servidor');
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server on port ${PORT}`);
