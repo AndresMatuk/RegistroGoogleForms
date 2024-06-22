@@ -33,6 +33,18 @@ app.get('/', async (req, res) => {
   }
 });
 
+app.get('/VerEntradas', async (req, res) => {
+  try {
+    const connection = await pool.getConnection();
+    const [rows] = await connection.query('SELECT * FROM EntradasSalidas');
+    connection.release();
+    res.json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error en el servidor');
+  }
+});
+
 app.post('/registro', async (req, res) => {
   const { nombre, correo, numero  } = req.body;
   const registro = { nombre, correo, numero };
